@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.test.databindinglivedatamvvm.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"/>
+
+        <TextView
+            android:id="@+id/text_view_random_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.currentRandomFruitName}"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_bias="1.0"/>
+
+        <Button
+            android:id="@+id/button_change_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/change_fruit"
+            android:textAllCaps="false"
+            android:onClick="@{() -> viewModel.onChangeRandomFruitClick()}"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            app:layout_constraintTop_toBottomOf="@id/text_view_random_fruit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_text_author"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="1dp"
+            android:autofillHints="@string/enter_fruit_name"
+            android:hint="@string/enter_fruit_name"
+            android:inputType="textCapSentences"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:text="@={viewModel.editTextContent}"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button_change_fruit"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_display_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/display_fruit"
+            android:textAllCaps="false"
+            android:padding="4dp"
+            android:onClick="@{() -> viewModel.onDisplayEditTextContentClick()}"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_edit_text_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.displayedEditTextContent}"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/button_display_fruit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_bias="1.0"/>
+
+        <Button
+            android:id="@+id/button_select_random_fruit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/select_random_fruit"
+            android:textAllCaps="false"
+            android:onClick="@{() -> viewModel.onSelectRandomEditTextFruit()}"
+            android:textColor="@color/colorPrimary"
+            android:background="@android:color/white"
+            android:layout_marginTop="8dp"
+            android:padding="6dp"
+            app:layout_constraintTop_toBottomOf="@id/text_view_edit_text_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

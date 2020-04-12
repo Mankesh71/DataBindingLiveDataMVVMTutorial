@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DataBinding LiveData MVVM</string>
+    <string name="change_fruit">Change fruit</string>
+    <string name="display_fruit">Display fruit</string>
+    <string name="select_random_fruit">Select random fruit</string>
+    <string name="enter_fruit_name">Enter fruit name</string>
+    <string name="content_of_edit_text">Content of edit text</string>
+</resources>
