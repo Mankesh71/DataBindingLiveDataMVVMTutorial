@@ -8,4 +8,4 @@ https://github.com/Mankesh71/BasicTutorialMVVM.git
 
 clone it into your system.
 
-Android studio verios used 3.6.2 stable.
+Android studio version used 3.6.2 stable.
